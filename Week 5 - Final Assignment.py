@@ -75,7 +75,7 @@ def compute_data_choice_2(df):
 # Application layout
 app.layout = html.Div(children=[ 
                                 # TODO1: Add title to the dashboard
-                              html.H1('US Domestic Airline Flights Performance', style ={'textAlign': 'center', 'color': '#503D36', 'font_size': 40},
+                              html.H1('US Domestic Airline Flights Performance', style ={'textAlign': 'center', 'color': '#503D36', 'font_size': 24},
     
                                 # REVIEW2: Dropdown creation
                                 # Create an outer division 
@@ -129,7 +129,7 @@ app.layout = html.Div(children=[
                               html.Div([
                                         html.Div([ ], id='plot4'),
                                         html.Div([ ], id='plot5')
-                                ], style={'display': 'flex'}),
+                                ], style={'display': 'flex'})
                                      )
 
 # Callback function definition
@@ -181,7 +181,7 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
             tree_fig = px.treemap(tree_data, path=['DestState', 'Reporting_Airlines'],
                                  values='Flights',
                                  color='Flights',
-                                 color_continuous_scale='Rdbu',
+                                 color_continuous_scale='RdBu',
                                  title='Flight count by airline to destination state')
             
             

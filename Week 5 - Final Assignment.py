@@ -75,7 +75,7 @@ def compute_data_choice_2(df):
 # Application layout
 app.layout = html.Div(children=[ 
                                 # TODO1: Add title to the dashboard
-                              html.H1('US Domestic Airline Flights Performance', style ={'textAlign': 'center', 'color': '#503D36', 'font_size': 24},
+                              html.H1('US Domestic Airline Flights Performance', style ={'textAlign': 'center', 'color': '#503D36', 'font_size': 24}),
     
                                 # REVIEW2: Dropdown creation
                                 # Create an outer division 
@@ -129,8 +129,8 @@ app.layout = html.Div(children=[
                               html.Div([
                                         html.Div([ ], id='plot4'),
                                         html.Div([ ], id='plot5')
-                                ], style={'display': 'flex'})
-                                     )
+                                ], style={'display': 'flex'}),
+                                ])
 
 # Callback function definition
 # TODO4: Add 5 ouput components
@@ -144,8 +144,9 @@ app.layout = html.Div(children=[
                # REVIEW4: Holding output state till user enters all the form information. In this case, it will be chart type and year
                [State("plot1", 'children'), State("plot2", "children"),
                 State("plot3", "children"), State("plot4", "children"),
-                State("plot5", "children")
-               ])
+                State("plot5", "children"),
+                                ])
+
 # Add computation to callback function and return graph
 def get_graph(chart, year, children1, children2, c3, c4, c5):
       
@@ -178,7 +179,7 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
                     geo_scope='usa') # Plot only the USA instead of globe
             
             # TODO6: Number of flights flying to each state from each reporting airline
-            tree_fig = px.treemap(tree_data, path=['DestState', 'Reporting_Airlines'],
+            tree_fig = px.treemap(tree_data, path=['DestState', 'Reporting_Airline'],
                                  values='Flights',
                                  color='Flights',
                                  color_continuous_scale='RdBu',
@@ -191,7 +192,7 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
                     dcc.Graph(figure=map_fig),
                     dcc.Graph(figure=bar_fig),
                     dcc.Graph(figure=line_fig)
-                   ]
+]
         else:
             # REVIEW7: This covers chart type 2 and we have completed this exercise under Flight Delay Time Statistics Dashboard section
             # Compute required information for creating graph from the data
